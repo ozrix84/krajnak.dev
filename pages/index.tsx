@@ -1,5 +1,5 @@
-export default () => (
-  <div>
-    Hello world
+export default function Index() {
+  return <div>
+    Index
   </div>
-);
+};
