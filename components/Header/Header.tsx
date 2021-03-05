@@ -1,3 +1,4 @@
+import styles from '@/styles/components/Header/Header.module.scss';
 import Logo from "@/components/Header/Logo/Logo";
 import Nav from './Nav/Nav';
 
@@ -22,7 +23,7 @@ const pages: Page[] = [
 ];
 
 export default function Header() {
-	return <div className="header">
+	return <div className={styles.Header}>
 		<Logo />
 		<Nav pages={pages} />
 	</div>

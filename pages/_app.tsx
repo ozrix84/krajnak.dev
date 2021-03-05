@@ -2,12 +2,15 @@
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Header from '@/components/Header/Header';
 import '@/styles/global.scss';
+import styles from '@/styles/components/_app.module.scss';
 
 function Krajnak({ Component, pageProps }: AppProps) {
-	return <>
-		<Header />
-		<Component {...pageProps} />
-	</>
+	return <div className={styles.mainWrapper}>
+		<div className={styles.contentWrapper}>
+			<Header />
+			<Component {...pageProps} />
+		</div>
+	</div>
 }
 
 // Only uncomment this method if you have blocking data requirements for
