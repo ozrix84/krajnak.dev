@@ -4,27 +4,31 @@ import Nav from './Nav/Nav';
 
 export interface Page {
 	name: string,
-	url: string
+	path: string
 };
 
 const pages: Page[] = [
 	{
 		name: 'home',
-		url: '/'
+		path: '/'
 	},
 	{
 		name: 'projects',
-		url: '/projects'
+		path: '/projects'
 	},
 	{
 		name: 'contact',
-		url: '/contact'
+		path: '/contact'
 	}
 ];
 
 export default function Header() {
-	return <div className={styles.Header}>
-		<Logo />
-		<Nav pages={pages} />
-	</div>
+	return <>
+		<header>
+			<div className={styles.Header}>
+				<Logo />
+				<Nav pages={pages} />
+			</div>
+		</header>
+	</>
 }

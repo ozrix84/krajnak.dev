@@ -1,16 +1,21 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from 'next/app'
-import Header from '@/components/Header/Header';
 import '@/styles/global.scss';
 import styles from '@/styles/components/_app.module.scss';
+import Header from '@/components/Header/Header';
+import Content from "@/components/Layout/Content";
 
 function Krajnak({ Component, pageProps }: AppProps) {
-	return <div className={styles.mainWrapper}>
-		<div className={styles.contentWrapper}>
-			<Header />
-			<Component {...pageProps} />
+	return <>
+		<div className={styles.mainWrapper}>
+			<div className={styles.contentWrapper}>
+				<Header />
+				<Content>
+					<Component {...pageProps} />
+				</Content>
+			</div>
 		</div>
-	</div>
+	</>
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -24,5 +29,4 @@ function Krajnak({ Component, pageProps }: AppProps) {
 
 //   return { ...appProps }
 // }
-
 export default Krajnak
