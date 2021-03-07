@@ -1,0 +1,46 @@
+.Avatar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.Address {
+	position: absolute;
+	top: 70px;
+	right: 20px;
+
+	width: 298px;
+	height: 298px;
+
+	font-style: normal;
+	font-size: 2.4rem;
+	font-family: "Kanit", Helvetica, sans-serif;
+	font-weight: 200;
+}
+
+.AddressButtons {
+	position: absolute;
+	z-index: 1;
+	top: 59%;
+	left: -15%;
+}
+
+.AddressButton {
+	width: 105px;
+	margin-bottom: 10px;
+}
+
+.AddressMail {
+	position: absolute;
+	bottom: -95px;
+	left: -330px;
+}
+
+.AddressPhone {
+	position: absolute;
+	bottom: -13px;
+	left: -500px;
+}
+
+

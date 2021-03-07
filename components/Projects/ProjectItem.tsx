@@ -7,6 +7,7 @@ import Button from "@/components/Button/Button";
 interface ProjectProps {
 	data: Project;
 	expanded?: boolean;
+	cls?: string;
 }
 
 export default function ProjectItem(props: ProjectProps) {
@@ -38,7 +39,10 @@ export default function ProjectItem(props: ProjectProps) {
 	) : null;
 
 	return <>
-		<motion.article id={`project-${props.data.id}`} className={`${styles.Project}`}>
+		<motion.article
+			id={`project-${props.data.id}`}
+			className={`${styles.Project} ${props.cls}`}
+		>
 			<div className={`${styles.ProjectPreview} ${props.expanded ? styles.ProjectPreviewExpanded : '' }`}>
 				<video muted loop playsInline width="250" height="200" autoPlay>
 					<source src={props.data.preview} type="video/mp4"/>

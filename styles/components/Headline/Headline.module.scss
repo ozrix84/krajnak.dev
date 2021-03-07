@@ -1,3 +1,5 @@
+@use '../../vars';
+
 .Headline {
 	font-family: Helvetica, sans-serif;
 	font-weight: bold;
@@ -17,7 +19,7 @@
 	margin: 10px 0 0 28.8%;
 
 	letter-spacing: -2px;
-	border: 1px dashed rgba(255,255,255,0.4);
+	border: vars.$dashed-border;
 	font-size: 4.6rem;
 	line-height: 1;
 
@@ -31,12 +33,16 @@
 		left: -47%;
 		width: 47%;
 		height: 0;
-		border-top: 1px dashed rgba(255,255,255,0.4);
+		border-top: vars.$dashed-border;
 	}
 
 	&:after {
 		left: auto;
 		width: 17%;
 		right: -17%;
+	}
+
+	strong {
+		color: #ecdfce;
 	}
 }

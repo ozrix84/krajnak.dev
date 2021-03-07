@@ -1,4 +1,4 @@
-@mixin dot($color) {
+@mixin dot($color: #ecdfce) {
 	position: relative;
 
 	display: inline-block;

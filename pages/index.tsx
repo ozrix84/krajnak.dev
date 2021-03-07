@@ -1,13 +1,17 @@
+import Head from 'next/head';
 import { motion, AnimatePresence } from "framer-motion";
 import Headline from "@/components/Headline/Headline";
 import Link from 'next/link';
 import indexStyles from '@/styles/pages/index.module.scss';
 
 const title = <strong>Welcome.</strong>;
-const subtitle = <span>I'm a web developer open for work</span>;
+const subtitle = <span>I'm a web developer <strong>open for work</strong></span>;
 
 export default function IndexPage() {
 	return <>
+		<Head>
+			<title>Jiří Krajňák - Web Developer</title>
+		</Head>
 		<AnimatePresence>
 			<motion.div>
 				<Headline title={title} subtitle={subtitle} />

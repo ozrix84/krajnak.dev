@@ -1,6 +1,7 @@
 .mainWrapper {
 	display: flex;
 	width: 100%;
+	min-width: 1197px;
 	height: 100%;
 
 	justify-content: center;
@@ -8,9 +9,8 @@
 }
 
 .contentWrapper {
-	width: 100%;
-	max-width: 1197px;
+	width: 1197px;
 	min-height: 760px;
-
+	flex-shrink: 0;
 	padding: 30px 20px;
 }

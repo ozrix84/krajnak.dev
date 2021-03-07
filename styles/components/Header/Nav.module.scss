@@ -1,15 +1,18 @@
+@use '../../vars';
+
 .Nav {
 	display: flex;
 	font-family: "Kanit", Helvetica, sans-serif;
 	font-size: 2.4rem;
 	font-weight: 200;
+	user-select: none;
 
 	a {
 		color: white;
 		text-decoration: none;
 
 		&:hover {
-			color: #ff2160;
+			color: vars.$color-highlight;
 		}
 	}
 }
@@ -21,9 +24,9 @@
 }
 
 .NavItemActive {
-	border-top: 5px solid #ff2160;
+	border-top: 5px solid vars.$color-highlight;
 
 	a {
-		color: #ff2160 !important;
+		color: vars.$color-highlight !important;
 	}
 }

@@ -11,10 +11,10 @@ interface HeadlineProps {
 }
 
 const variants = {
-	initialLeft: {
+	fromLeft: {
 		opacity: 0, translateX: -100
 	},
-	initialRight: {
+	fromRight: {
 		opacity: 0, translateX: 100
 	},
 	animate: {
@@ -23,14 +23,14 @@ const variants = {
 };
 
 const headlineProps = {
-	initial: 'initialLeft',
+	initial: 'fromLeft',
 	animate: 'animate',
 	variants
 };
 
 export default function Headline(props: HeadlineProps) {
 	const cls       = props.titleClass || styles.HeadlineTitle;
-	const title     = <strong>{props.title}</strong>
+	const title     = props.title;
 	const headline  = <motion.h1 className={cls} {...headlineProps}>{title}</motion.h1>
 	const paragraph = <motion.p  className={cls} {...headlineProps}>{title}</motion.p>
 
@@ -39,7 +39,7 @@ export default function Headline(props: HeadlineProps) {
 
 		<motion.p
 			className={`${props.subtitleClass || styles.HeadlineSubtitle}`}
-			initial={'initialRight'}
+			initial={'fromRight'}
 			animate={'animate'}
 			transition={{ delay: 0.2 }}
 			variants={variants}

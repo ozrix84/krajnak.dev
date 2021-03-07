@@ -58,14 +58,19 @@ export default function Projects() {
 			{projects.map((project, index)=> {
 				const expanded = (!index);
 
-				return <motion.div
-					key={index}
-					initial={{ opacity: 0, y: 50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: (index * 0.1) + 0.5 }}
-				>
-					<ProjectItem key={project.id} data={project} expanded={expanded} />
-				</motion.div>
+				return (
+					<motion.div
+						key={index}
+						initial={{ opacity: 0, y: 50 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: (index * 0.1) + 0.5 }}
+					>
+						<ProjectItem cls={index + 1 === projects.length ? styles.ProjectLast : null}
+									 key={project.id}
+									 data={project}
+									 expanded={expanded} />
+					</motion.div>
+				)
 			})}
 		</div>
 	</>

@@ -1,3 +1,4 @@
+@use '../../vars';
 @use '../../mixins';
 
 $projectCollapsedWidth: 0;
@@ -13,7 +14,7 @@ $projectExpandedHeight: 150px;
 
 	&:before {
 		content: ' ';
-		@include mixins.dot(white);
+		@include mixins.dot();
 
 		position: absolute;
 		z-index: 1;
@@ -28,19 +29,14 @@ $projectExpandedHeight: 150px;
 		position: absolute;
 		top: 193px;
 		left: 0;
-		width: calc(116%);
+		width: 116%;
 		height: 1px;
-		border-bottom: 1px dashed rgba(255,255,255,0.4);
-	}
-
-	&:last-child {
-		&:after {
-			width: 100%;
-		}
+		border-bottom: vars.$dashed-border;
 	}
 
 	h2 {
 		margin: 25px 0 20px;
+		color: #ecdfce;
 		font-family: "Kanit", Helvetica, sans-serif;
 		font-size: 2.4rem;
 		font-weight: 200;
@@ -56,6 +52,12 @@ $projectExpandedHeight: 150px;
 		position: absolute;
 		top: 64px;
 		right: 0;
+	}
+}
+
+.ProjectLast {
+	&:after {
+		width: 100%;
 	}
 }
 
