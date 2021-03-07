@@ -1,0 +1,8 @@
+@import 'Project.module';
+
+.Projects {
+	display: grid;
+	grid-template-columns: repeat(3, 30%);
+	grid-template-rows: auto;
+	column-gap: 5%;
+}

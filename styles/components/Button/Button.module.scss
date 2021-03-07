@@ -1,0 +1,18 @@
+.Button {
+	display: flex;
+	min-width: 105px;
+	height: 30px;
+	align-items: center;
+	justify-content: center;
+
+	font-family: "Kanit", Helvetica, sans-serif;
+	font-size: 1.3rem;
+	font-weight: 500;
+
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+
+	background: #ea215a;
+}

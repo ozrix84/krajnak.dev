@@ -4,8 +4,8 @@
 }
 
 .HeadlineTitle {
-	margin: 0 0 0 150px;
-	font-size: 136px;
+	margin: 0 0 0 13%;
+	font-size: 13.6rem;
 	letter-spacing: -8px;
 	line-height: .75;
 }
@@ -14,11 +14,11 @@
 	position: relative;
 	display: inline-block;
 	padding: 8px 10px;
-	margin: 10px 0 0 330px;
+	margin: 10px 0 0 28.8%;
 
 	letter-spacing: -2px;
 	border: 1px dashed rgba(255,255,255,0.4);
-	font-size: 46px;
+	font-size: 4.6rem;
 	line-height: 1;
 
 	&:before,
@@ -28,15 +28,15 @@
 		display: block;
 		position: absolute;
 		top: 50%;
-		left: -331px;
-		width: 330px;
+		left: -47%;
+		width: 47%;
 		height: 0;
 		border-top: 1px dashed rgba(255,255,255,0.4);
 	}
 
 	&:after {
 		left: auto;
-		width: 120px;
-		right: -120px;
+		width: 17%;
+		right: -17%;
 	}
 }

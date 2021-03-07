@@ -1,0 +1,92 @@
+@use '../../mixins';
+
+$projectCollapsedWidth: 0;
+$projectCollapsedHeight: 0;
+
+$projectExpandedWidth: 295px;
+$projectExpandedHeight: 150px;
+
+.Project {
+	position: relative;
+	padding-top: 195px;
+	text-align: center;
+
+	&:before {
+		content: ' ';
+		@include mixins.dot(white);
+
+		position: absolute;
+		z-index: 1;
+		top: 185px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&:after {
+		content: ' ';
+		display: block;
+		position: absolute;
+		top: 193px;
+		left: 0;
+		width: calc(116%);
+		height: 1px;
+		border-bottom: 1px dashed rgba(255,255,255,0.4);
+	}
+
+	&:last-child {
+		&:after {
+			width: 100%;
+		}
+	}
+
+	h2 {
+		margin: 25px 0 20px;
+		font-family: "Kanit", Helvetica, sans-serif;
+		font-size: 2.4rem;
+		font-weight: 200;
+	}
+
+	p {
+		font-size: 1.6rem;
+		font-weight: 300;
+	}
+
+	nav {
+		display: inline-block;
+		position: absolute;
+		top: 64px;
+		right: 0;
+	}
+}
+
+.ProjectPreview {
+	position: absolute;
+	top: 43px;
+	left: 50%;
+	transform: translateX(-50%) scale(0);
+
+	width: $projectExpandedWidth;
+	height: $projectExpandedHeight;
+	overflow: hidden;
+
+	border-top-left-radius: $projectExpandedWidth;
+	border-top-right-radius: $projectExpandedWidth;
+
+	transform-origin: 50% 100%;
+	transition: transform .3s ease;
+
+	video {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.ProjectPreviewExpanded {
+	transform: translateX(-50%) scale(1);
+}
+
+.ProjectLinks {
+	li {
+		margin-bottom: 5px;
+	}
+}

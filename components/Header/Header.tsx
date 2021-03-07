@@ -5,7 +5,7 @@ import Nav from './Nav/Nav';
 export interface Page {
 	name: string,
 	path: string
-};
+}
 
 const pages: Page[] = [
 	{
