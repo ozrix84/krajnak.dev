@@ -1,3 +1,5 @@
+@use '../../vars';
+
 .Avatar {
 	position: absolute;
 	top: 0;
@@ -32,15 +34,30 @@
 }
 
 .AddressMail {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+
 	position: absolute;
-	bottom: -95px;
-	left: -330px;
+	bottom: -100px;
+	left: -320px;
 }
 
 .AddressPhone {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+
 	position: absolute;
 	bottom: -13px;
 	left: -500px;
 }
 
+.AddressResume {
+	position: absolute;
+	bottom: -156px;
+	left: 108px;
+}
 
+.AddressMail,
+.AddressPhone {
+	color: vars.$color-highlight;
+}

@@ -1,10 +1,43 @@
+import { useState } from 'react';
 import styles from "@/styles/components/Address/Address.module.scss";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Button from "@/components/Button/Button";
 
+type AddressData = {
+	className: string;
+	value: string;
+	href?: string;
+};
 
+const variants = {
+	initial: { opacity: 0, y: 50 },
+	initialInv: { opacity: 0, y: -50 },
+	animate: i => ({
+		opacity: 1,
+		y: 0,
+		transition: {
+			delay: i * 0.1 + 0.9
+		}
+	})
+};
 
 export default function Address() {
+	const [ addressData, setAddressData ] = useState<AddressData[]>([
+		{
+			className: styles.AddressMail,
+			value: 'moc.liamg@4891kcidkpilihp'
+		},
+		{
+			className: styles.AddressPhone,
+			value: '489 867 806 (024+)'
+		},
+		{
+			className: styles.AddressResume,
+			value: 'Resumé',
+			href: '/docs/cv-krajnak.pdf'
+		}
+	]);
+
 	return <>
 		<address className={styles.Address}>
 			<motion.img
@@ -16,14 +49,18 @@ export default function Address() {
 			/>
 
 			<div className={styles.AddressButtons}>
-				<motion.div initial={{ opacity: 0, x: -65 }} transition={{ delay: 0.6 }} animate={{ opacity: 1, x: 0 }}>
+				<motion.div initial={{ opacity: 0, x: -65 }}
+							transition={{ delay: 0.6 }}
+							animate={{ opacity: 1, x: 0 }}>
 					<Button className={styles.AddressButton}
 							href="https://www.linkedin.com/in/jirikrajnak/">
 						LinkedIn
 					</Button>
 				</motion.div>
 
-				<motion.div initial={{ opacity: 0, x: -50 }} transition={{ delay: 0.8 }} animate={{ opacity: 1, x: 15 }}>
+				<motion.div initial={{ opacity: 0, x: -50 }}
+							animate={{ opacity: 1, x: 15 }}
+							transition={{ delay: 0.8 }}>
 					<Button className={styles.AddressButton}
 							href="https://github.com/ozrix84">
 						Github
@@ -31,22 +68,26 @@ export default function Address() {
 				</motion.div>
 			</div>
 
-			<motion.a
-				initial={{ opacity: 0, y: -50 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.9 }}
-				href="tel:+420608768984"
-				className={styles.AddressPhone}>
-				(+420) 608 768 984
-			</motion.a>
-			<motion.a
-				initial={{ opacity: 0, y: 50 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.9 }}
-				href="mailto:philipkdick1984@gmail.com"
-				className={styles.AddressMail}>
-				philipkdick1984@gmail.com
-			</motion.a>
+			{addressData.map((item, index)=> {
+				const props = {
+					key: index,
+					custom: index,
+					variants: variants,
+					initial: index === 0 ? 'initialInv' : 'initial',
+					animate: 'animate',
+					className: item.className
+				};
+
+				return item.href ? (
+					<motion.a {...props} href={item.href}>
+						{item.value}
+					</motion.a>
+				): (
+					<motion.span {...props}>
+						{item.value}
+					</motion.span>
+				);
+			})}
 		</address>
 	</>
 }

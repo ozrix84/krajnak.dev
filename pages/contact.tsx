@@ -12,7 +12,7 @@ const dotContainer = {
 	show: { opacity: 1 }
 }
 
-const dot = {
+const dotVariants = {
 	hidden: { opacity: 0, scale: 0 },
 	show: { opacity: 1, scale: 1 }
 };
@@ -24,33 +24,38 @@ export default function ContactPage() {
 		<Head>
 			<title>Contact Information - Jiří Krajňák</title>
 		</Head>
-		<motion.div>
-			<Headline
-				title={title}
-				subtitle={subtitle}
-				titleTag={'h1'}
-				titleClass={contactStyles.HeadlineTitle}
-				subtitleClass={contactStyles.HeadlineSubtitle}
-			/>
-		</motion.div>
+
+		<Headline
+			title={title}
+			subtitle={subtitle}
+			titleTag={'h1'}
+			titleClass={contactStyles.HeadlineTitle}
+			subtitleClass={contactStyles.HeadlineSubtitle}
+		/>
 
 		<Address/>
 
-		<motion.div className={contactStyles.Dots}
-					variants={dotContainer}
-					initial="hidden"
-					animate="show">
+		<motion.div
+			className={contactStyles.Dots}
+			variants={dotContainer}
+			initial="hidden"
+			animate="show"
+		>
 			{[...new Array(6)].map((i,j) => {
-				return <motion.div key={j} variants={dot} transition={{delay: j * 0.1 + 0.2 }} />
+				return <motion.div
+					key={j}
+					variants={dotVariants}
+					transition={{delay: j * 0.1 }} />
 			})}
 		</motion.div>
 
 		<div className={contactStyles.Lines}>
 			{[...new Array(7)].map((i,j) => {
-				return <motion.div key={j}
-								   initial={{ width: 0 }}
-								   animate={{ width: linesWidthMap[j] || 100 }}
-								   transition={{ delay: 0.4 }} />
+				return <motion.div
+					key={j}
+					initial={{ width: 0 }}
+					animate={{ width: linesWidthMap[j] || 100 }}
+					transition={{ delay: 0.4 + 0.15 }} />
 			})}
 		</div>
 	</>
