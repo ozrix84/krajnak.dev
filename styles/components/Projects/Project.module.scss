@@ -4,30 +4,19 @@
 $projectCollapsedWidth: 0;
 $projectCollapsedHeight: 0;
 
-$projectExpandedWidth: 295px;
-$projectExpandedHeight: 150px;
+$projectExpandedWidth: 340px;
+$projectExpandedHeight: 170px;
 
 .Project {
 	position: relative;
-	padding-top: 195px;
 	text-align: center;
-
-	&:before {
-		content: ' ';
-		@include mixins.dot();
-
-		position: absolute;
-		z-index: 1;
-		top: 185px;
-		left: 50%;
-		transform: translateX(-50%);
-	}
+	user-select: none;
 
 	&:after {
 		content: ' ';
 		display: block;
 		position: absolute;
-		top: 193px;
+		top: 195px;
 		left: 0;
 		width: 116%;
 		height: 1px;
@@ -52,6 +41,7 @@ $projectExpandedHeight: 150px;
 		position: absolute;
 		top: 64px;
 		right: 0;
+		z-index: 2;
 	}
 }
 
@@ -61,34 +51,94 @@ $projectExpandedHeight: 150px;
 	}
 }
 
-.ProjectPreview {
-	position: absolute;
-	top: 43px;
-	left: 50%;
-	transform: translateX(-50%) scale(0);
+.ProjectExpanded {
+	&:nth-child(1) {
 
-	width: $projectExpandedWidth;
-	height: $projectExpandedHeight;
-	overflow: hidden;
+	}
 
-	border-top-left-radius: $projectExpandedWidth;
-	border-top-right-radius: $projectExpandedWidth;
+	&:nth-child(2) {
 
-	transform-origin: 50% 100%;
-	transition: transform .3s ease;
+	}
 
-	video {
-		width: 100%;
-		height: auto;
+	&:nth-child(3) {
+
 	}
 }
 
-.ProjectPreviewExpanded {
-	transform: translateX(-50%) scale(1);
+.ProjectPreview,
+.ProjectPreviewPulse {
+	width: $projectExpandedWidth;
+	height: $projectExpandedHeight;
+
+	overflow: hidden;
+	transform-origin: 50% 100%;
+
+	border-top-left-radius: $projectExpandedWidth * 2;
+	border-top-right-radius: $projectExpandedWidth * 2;
+
+	video {
+		position: relative;
+		width: 100%;
+		height: auto;
+		z-index: 1;
+	}
+}
+
+.ProjectPreviewPulse {
+	position: absolute;
+	top: 25px;
+	z-index: 0;
+
+	border: 1px solid white;
+	border-bottom: 0;
+}
+
+.ProjectTop {
+	position: relative;
+	height: 195px;
+	padding-top: 25px;
+}
+
+.ProjectTopOverflow {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+
+	width: 100%;
+	height: 100%;
 }
 
 .ProjectLinks {
 	li {
 		margin-bottom: 5px;
+	}
+}
+
+.Circle,
+.CirclePulse {
+	@include mixins.dot();
+
+	position: absolute;
+	z-index: 1;
+	top: 187px;
+	left: 50%;
+	margin-left: -8px;
+
+	width: 16px;
+	height: 16px;
+}
+
+.CirclePulse {
+	top: auto;
+	bottom: -8px;
+	margin: 0 0 0 -8px;
+
+	background: none;
+	border: 1px solid white;
+}
+
+.HoverContainer {
+	&:hover {
+		cursor: pointer;
 	}
 }

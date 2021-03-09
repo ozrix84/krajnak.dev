@@ -16,7 +16,7 @@ const variants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			delay: i * 0.1 + 0.9
+			delay: i * 0.1 + 1
 		}
 	})
 };
@@ -24,12 +24,12 @@ const variants = {
 export default function Address() {
 	const [ addressData, setAddressData ] = useState<AddressData[]>([
 		{
-			className: styles.AddressMail,
-			value: 'moc.liamg@4891kcidkpilihp'
-		},
-		{
 			className: styles.AddressPhone,
 			value: '489 867 806 (024+)'
+		},
+		{
+			className: styles.AddressMail,
+			value: 'moc.liamg@4891kcidkpilihp'
 		},
 		{
 			className: styles.AddressResume,

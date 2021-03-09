@@ -23,6 +23,14 @@ export default function ContactPage() {
 	return <>
 		<Head>
 			<title>Contact Information - Jiří Krajňák</title>
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-100.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-200.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-300.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-500.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-600.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-700.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-800.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-900.woff2" as="font" type="font/woff2" crossOrigin="" />
 		</Head>
 
 		<Headline

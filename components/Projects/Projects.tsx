@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import styles from "@/styles/components/Projects/Projects.module.scss";
 import ProjectItem from "@/components/Projects/ProjectItem";
 import {motion} from "framer-motion";
@@ -53,22 +54,30 @@ const projects: Project[] = [
 ]
 
 export default function Projects() {
+	const [ selected, setSelected ] = useState<null | number>(null);
+
+	useEffect(()=>{
+		setTimeout(()=> setSelected(0), 1100);
+	}, []);
+
 	return <>
 		<div className={styles.Projects}>
 			{projects.map((project, index)=> {
-				const expanded = (!index);
+				const expanded = selected === index;
 
 				return (
 					<motion.div
 						key={index}
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: (index * 0.1) + 0.5 }}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: (index * 0.1) + 0.5, duration: 0.15 }}
 					>
 						<ProjectItem cls={index + 1 === projects.length ? styles.ProjectLast : null}
 									 key={project.id}
 									 data={project}
-									 expanded={expanded} />
+									 expanded={expanded}
+									 onClick={()=> setSelected(index)}
+						/>
 					</motion.div>
 				)
 			})}

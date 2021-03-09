@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import styles from "@/styles/components/Projects/Projects.module.scss";
 import {Project} from '@/components/Projects/Projects';
@@ -8,10 +8,30 @@ interface ProjectProps {
 	data: Project;
 	expanded?: boolean;
 	cls?: string;
+	onClick(): void;
+}
+
+const pulse = {
+	rest: {},
+	hover: { scale: 8, opacity: 0, transition: { duration: 0.5, repeat: Infinity, repeatDelay: 0.2 }}
+};
+
+const preview = {
+	rest: { scale: 0 },
+	expand: { scale: 1, transition: { duration: 0.3 } }
+}
+
+const previewPulse = {
+	rest: { scale: 1 },
+	expand: { scale: 1.3, opacity: 0, transition: { duration: 0.3, delay: 0.2 }}
 }
 
 export default function ProjectItem(props: ProjectProps) {
-	const [isExpanded, setIsExpanded] = useState((props.expanded));
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	useEffect(()=>{
+		setIsExpanded(props.expanded);
+	}, [props.expanded]);
 
 	const nav = isExpanded ? (
 		<nav className={styles.ProjectLinks}>
@@ -20,13 +40,9 @@ export default function ProjectItem(props: ProjectProps) {
 					return (
 						<motion.li
 							key={index}
-							initial={{ opacity: 0, x: 150 }}
+							initial={{ opacity: 0, x: 50 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{
-								delay: (index * 0.2) + 1,
-								x: { type: "spring", stiffness: 100, bounce: 0 },
-								default: { duration: 1 },
-							}}
+							transition={{ delay: (index * 0.2) + 0.4 }}
 						>
 							<Button href={props.data.links[link]}>
 								{link}
@@ -40,22 +56,46 @@ export default function ProjectItem(props: ProjectProps) {
 
 	return <>
 		<motion.article
-			id={`project-${props.data.id}`}
 			className={`${styles.Project} ${props.cls}`}
+			whileHover={isExpanded ? 'rest' : 'hover'}
+			onClick={props.onClick}
 		>
-			<div className={`${styles.ProjectPreview} ${props.expanded ? styles.ProjectPreviewExpanded : '' }`}>
-				<video muted loop playsInline width="250" height="200" autoPlay>
-					<source src={props.data.preview} type="video/mp4"/>
-				</video>
+			<div className={styles.ProjectTop}>
+				<motion.div
+					className={`${styles.ProjectPreview}`}
+					variants={preview}
+					animate={isExpanded ? 'expand' : 'rest'}
+				>
+					<video muted loop playsInline width="250" height="200" autoPlay>
+						<source src={props.data.preview} type="video/mp4"/>
+					</video>
+
+					<motion.div
+						className={styles.ProjectPreviewPulse}
+						variants={previewPulse}
+						animate={isExpanded ? 'expand' : 'rest'} />
+				</motion.div>
+
+				<div className={styles.ProjectTopOverflow}>
+					<motion.div
+						className={styles.CirclePulse}
+						variants={pulse}  />
+				</div>
+
+				{nav}
 			</div>
 
-			{nav}
+			<div className={styles.HoverContainer}>
+				<motion.h2 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0, transition: {delay: 0.9} }}>
+					{props.data.title}
+				</motion.h2>
+				<motion.p
+					dangerouslySetInnerHTML={{__html: props.data.desc}}
+					initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0, transition: {delay: 0.9} }}
+				/>
 
-			<h2>
-				{props.data.title}
-			</h2>
-
-			<p dangerouslySetInnerHTML={{__html: props.data.desc}}/>
+				<div className={styles.Circle} />
+			</div>
 		</motion.article>
 	</>
 }
