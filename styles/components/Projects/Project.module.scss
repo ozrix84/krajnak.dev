@@ -29,6 +29,7 @@ $projectExpandedHeight: 170px;
 		font-family: "Kanit", Helvetica, sans-serif;
 		font-size: 2.4rem;
 		font-weight: 200;
+		transition: color .3s ease;
 	}
 
 	p {
@@ -43,25 +44,16 @@ $projectExpandedHeight: 170px;
 		right: 0;
 		z-index: 2;
 	}
+
+	strong {
+		font-weight: normal;
+		transition: color .3s ease;
+	}
 }
 
 .ProjectLast {
 	&:after {
 		width: 100%;
-	}
-}
-
-.ProjectExpanded {
-	&:nth-child(1) {
-
-	}
-
-	&:nth-child(2) {
-
-	}
-
-	&:nth-child(3) {
-
 	}
 }
 
@@ -128,6 +120,10 @@ $projectExpandedHeight: 170px;
 	height: 16px;
 }
 
+.Circle {
+	transition: background-color .3s ease;
+}
+
 .CirclePulse {
 	top: auto;
 	bottom: -8px;
@@ -138,7 +134,39 @@ $projectExpandedHeight: 170px;
 }
 
 .HoverContainer {
+	overflow: hidden;
+
 	&:hover {
 		cursor: pointer;
+	}
+}
+
+.azure {
+	h2, strong {
+		color: vars.$color-azure;
+	}
+
+	.Circle {
+		background: vars.$color-azure;
+	}
+}
+
+.caramel {
+	h2, strong {
+		color: vars.$color-caramel;
+	}
+
+	.Circle {
+		background: vars.$color-caramel;
+	}
+}
+
+.crimson {
+	h2, strong {
+		color: vars.$color-crimson;
+	}
+
+	.Circle {
+		background: vars.$color-crimson;
 	}
 }

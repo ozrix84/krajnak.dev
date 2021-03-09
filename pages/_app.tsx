@@ -1,6 +1,6 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from 'next/app';
-import { AnimateSharedLayout } from "framer-motion";
+import Head from "next/head";
 import '@/styles/global.scss';
 import styles from '@/styles/components/_app.module.scss';
 import Header from '@/components/Header/Header';
@@ -8,16 +8,23 @@ import Content from "@/components/Layout/Content";
 
 function Krajnak({ Component, pageProps }: AppProps) {
 	return <>
-		<AnimateSharedLayout>
-			<div className={styles.mainWrapper}>
-				<div className={styles.contentWrapper}>
-					<Header />
-					<Content>
-						<Component {...pageProps} />
-					</Content>
-				</div>
+		<Head>
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-100.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-200.woff2" as="font" type="font/woff2" crossOrigin="" />
+			<link rel="preload" href="/fonts/kanit-v7-latin-ext_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="" />
+		</Head>
+
+		<div className={styles.mainWrapper}>
+			<div className={styles.contentWrapper}>
+				<Header />
+
+				<Content>
+					<Component {...pageProps} />
+				</Content>
 			</div>
-		</AnimateSharedLayout>
+
+			<div id="modal-root" />
+		</div>
 	</>
 }
 

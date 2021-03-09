@@ -9,10 +9,11 @@ interface ProjectProps {
 	expanded?: boolean;
 	cls?: string;
 	onClick(): void;
+	onVideoClick(): void;
 }
 
 const pulse = {
-	rest: {},
+	rest: { display: 'none' },
 	hover: { scale: 8, opacity: 0, transition: { duration: 0.5, repeat: Infinity, repeatDelay: 0.2 }}
 };
 
@@ -23,7 +24,7 @@ const preview = {
 
 const previewPulse = {
 	rest: { scale: 1 },
-	expand: { scale: 1.3, opacity: 0, transition: { duration: 0.3, delay: 0.2 }}
+	expand: { scale: 1.3, opacity: 0, transition: { duration: 0.5, delay: 0.15 }}
 }
 
 export default function ProjectItem(props: ProjectProps) {
@@ -33,18 +34,27 @@ export default function ProjectItem(props: ProjectProps) {
 		setIsExpanded(props.expanded);
 	}, [props.expanded]);
 
+	function videoClickHandler(e: MouseEvent) {
+		e.preventDefault();
+		props.onVideoClick();
+	}
+
 	const nav = isExpanded ? (
 		<nav className={styles.ProjectLinks}>
 			<ul>
 				{Object.keys(props.data.links).map((link, index)=> {
+					const videoClickProp = link === 'video' ? {
+						onClick: (e)=> videoClickHandler(e)
+					} : {};
+
 					return (
 						<motion.li
 							key={index}
 							initial={{ opacity: 0, x: 50 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: (index * 0.2) + 0.4 }}
+							transition={{ delay: (index * 0.2) + 0.45 }}
 						>
-							<Button href={props.data.links[link]}>
+							<Button {...videoClickProp} href={props.data.links[link]}>
 								{link}
 							</Button>
 						</motion.li>
@@ -56,7 +66,7 @@ export default function ProjectItem(props: ProjectProps) {
 
 	return <>
 		<motion.article
-			className={`${styles.Project} ${props.cls}`}
+			className={`${styles.Project} ${props.cls} ${isExpanded ? styles[props.data.theme] : ''}`}
 			whileHover={isExpanded ? 'rest' : 'hover'}
 			onClick={props.onClick}
 		>
@@ -76,22 +86,29 @@ export default function ProjectItem(props: ProjectProps) {
 						animate={isExpanded ? 'expand' : 'rest'} />
 				</motion.div>
 
-				<div className={styles.ProjectTopOverflow}>
+				{!isExpanded && <div className={styles.ProjectTopOverflow}>
 					<motion.div
 						className={styles.CirclePulse}
 						variants={pulse}  />
-				</div>
+				</div>}
 
 				{nav}
 			</div>
 
 			<div className={styles.HoverContainer}>
-				<motion.h2 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0, transition: {delay: 0.9} }}>
+				<motion.h2
+					initial={{ opacity: 0, x: -50 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ delay: 0.7 }}
+				>
 					{props.data.title}
 				</motion.h2>
+
 				<motion.p
 					dangerouslySetInnerHTML={{__html: props.data.desc}}
-					initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0, transition: {delay: 0.9} }}
+					initial={{ opacity: 0, x: 50 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ delay: 0.7 }}
 				/>
 
 				<div className={styles.Circle} />
