@@ -1,14 +1,14 @@
 @use '../../vars';
 
 .Headline {
-	font-family: Helvetica, sans-serif;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
 	font-weight: bold;
 }
 
 .HeadlineTitle {
 	margin: 0 0 0 13%;
 	font-size: 13.6rem;
-	letter-spacing: -8px;
+	letter-spacing: -6.5px;
 	line-height: .75;
 }
 
@@ -18,7 +18,7 @@
 	padding: 8px 10px;
 	margin: 10px 0 0 28.8%;
 
-	letter-spacing: -2px;
+	letter-spacing: -1.5px;
 	border: vars.$dashed-border;
 	font-size: 4.6rem;
 	line-height: 1;
@@ -33,16 +33,16 @@
 	display: block;
 	position: absolute;
 	top: 50%;
-	left: -47%;
-	width: 47%;
+	left: -49%;
+	width: 49%;
 	height: 0;
 	border-top: vars.$dashed-border;
 }
 
 .HeadlineRightBorder {
 	left: auto;
-	width: 17%;
-	right: -17%;
+	width: 21%;
+	right: -21%;
 }
 
 .Projects {
@@ -58,13 +58,13 @@
 	}
 
 	.HeadlineLeftBorder {
-		left: -29%;
-		width: 29%;
+		left: -30%;
+		width: 30%;
 	}
 
 	.HeadlineRightBorder {
-		width: 63%;
-		right: -63%;
+		width: 69%;
+		right: -69%;
 	}
 }
 
@@ -85,8 +85,8 @@
 	}
 
 	.HeadlineRightBorder {
-		width: 31%;
-		right: -31%;
+		width: 38%;
+		right: -38%;
 	}
 }
 
