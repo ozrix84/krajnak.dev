@@ -72,6 +72,10 @@ $projectExpandedHeight: 170px;
 	border-top-left-radius: $projectExpandedWidth * 2;
 	border-top-right-radius: $projectExpandedWidth * 2;
 
+	&:hover {
+		cursor: default;
+	}
+
 	video {
 		position: relative;
 		width: 100%;
