@@ -81,6 +81,9 @@ $projectExpandedHeight: 170px;
 		width: 100%;
 		height: auto;
 		z-index: 1;
+
+		border-top-left-radius: $projectExpandedWidth * 2;
+		border-top-right-radius: $projectExpandedWidth * 2;
 	}
 }
 
