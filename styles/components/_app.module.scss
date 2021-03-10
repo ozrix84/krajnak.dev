@@ -1,4 +1,7 @@
+@use '../vars';
+
 .mainWrapper {
+	position: relative;
 	display: flex;
 	width: 100%;
 	min-width: 1197px;
@@ -9,8 +12,43 @@
 }
 
 .contentWrapper {
+	position: relative;
 	width: 1197px;
 	min-height: 760px;
 	flex-shrink: 0;
 	padding: 30px 20px;
+}
+
+.Logos {
+	nav {
+		display: flex;
+		height: 37px;
+
+		align-items: stretch;
+		position: absolute;
+
+		bottom: 8px;
+		right: 8px;
+
+		padding: 10px 15px;
+		justify-content: space-between;
+
+		background: rgba(0,0,0,0.5);
+	}
+
+	.Next {
+		margin-right: 5px;
+	}
+
+	.Next,
+	.Github {
+		opacity: 0.5;
+		display: block;
+		width: 16px;
+		transition: opacity .15s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
