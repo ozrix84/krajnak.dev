@@ -97,18 +97,18 @@ export default function ProjectItem(props: ProjectProps) {
 
 			<div className={styles.HoverContainer}>
 				<motion.h2
-					initial={{ opacity: 0, x: -50 }}
+					initial={{ opacity: 0, x: -75 }}
 					animate={{ opacity: 1, x: 0 }}
-					transition={{ delay: 0.7 }}
+					transition={{ delay: 0.7, type: 'tween' }}
 				>
 					{props.data.title}
 				</motion.h2>
 
 				<motion.p
 					dangerouslySetInnerHTML={{__html: props.data.desc}}
-					initial={{ opacity: 0, x: 50 }}
+					initial={{ opacity: 0, x: 75 }}
 					animate={{ opacity: 1, x: 0 }}
-					transition={{ delay: 0.7 }}
+					transition={{ delay: 0.7, type: 'tween' }}
 				/>
 
 				<div className={styles.Circle} />
