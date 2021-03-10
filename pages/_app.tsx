@@ -32,14 +32,14 @@ function Krajnak({ Component, pageProps }: AppProps) {
 
 		<aside className={styles.Logos}>
 			<nav>
-				<a className={styles.Next} href="#">
+				<a className={styles.Next} href="https://nextjs.org/">
 					<img src="/images/next-js.svg"
 						 alt="Next.js logo"
 						 title="This site has been built with Next.js"
 					/>
 				</a>
 
-				<a className={styles.Github} href="#">
+				<a className={styles.Github} href="https://github.com/ozrix84/krajnak.dev">
 					<img src="/images/github.svg"
 						 alt="Github logo"
 						 title="The source code for this site is available over at Github"
