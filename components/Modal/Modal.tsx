@@ -28,8 +28,7 @@ export default function Modal(props: React.PropsWithChildren<ModalProps>) {
 					<motion.div
 						key={0}
 						className={styles.Modal}
-						initial={{ scale: 0.75, x: '-50%' }}
-						animate={{ scale: 1, x: '-50%' }}
+						initial={{ x: '-50%' }}
 						exit={{ opacity: 0, x: '-50%', transition: {duration: 0.1} }}
 					>
 						<div className={styles.ModalWrapper}>

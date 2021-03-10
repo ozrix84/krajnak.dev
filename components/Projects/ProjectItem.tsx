@@ -52,7 +52,7 @@ export default function ProjectItem(props: ProjectProps) {
 							key={index}
 							initial={{ opacity: 0, x: 50 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: (index * 0.2) + 0.45 }}
+							transition={{ delay: (index * 0.2) + 0.5 }}
 						>
 							<Button {...videoClickProp} href={props.data.links[link]}>
 								{link}
