@@ -1,4 +1,9 @@
 .Content {
+	height: 100%;
 	position: relative;
-	padding-top: 140px;
+	padding-top: 14rem;
+
+	@media (max-width: 320px) {
+		padding-top: 10rem;
+	}
 }

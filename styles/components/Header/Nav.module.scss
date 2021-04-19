@@ -3,9 +3,13 @@
 .Nav {
 	display: flex;
 	font-family: "Kanit", Helvetica, sans-serif;
-	font-size: 2.4rem;
+	font-size: 2.3rem;
 	font-weight: 200;
 	user-select: none;
+
+	@media (max-width: 350px) {
+		font-size: 2.1rem;
+	}
 
 	a {
 		color: white;
@@ -20,7 +24,19 @@
 .NavItem {
 	display: flex;
 	align-items: flex-end;
-	margin-left: 50px;
+	margin-left: 5rem;
+
+	@media (max-width: 520px) {
+		margin-left: 4rem;
+	}
+
+	@media (max-width: 450px) {
+		margin-left: 2rem;
+	}
+
+	@media (max-width: 340px) {
+		margin-left: 1rem;
+	}
 }
 
 .NavItemActive {

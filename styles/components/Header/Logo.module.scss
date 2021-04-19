@@ -11,8 +11,29 @@
 		text-decoration: none;
 	}
 
-	span {
-		padding: 5px 10px 5px 16px;
-		background: #ea215a;
+	@media (max-width: 400px) {
+		font-size: 1.5rem;
+		margin-top: -6px;
+	}
+}
+
+.Surname {
+	display: inline-block;
+	padding: 5px 10px 5px 15px;
+	background: #ea215a;
+
+	@media (max-width: 400px) {
+		padding: 4px 8px 3px 12px;
+	}
+}
+
+.Firstname {
+	display: inline-block;
+	margin-right: 10px;
+
+	@media (max-width: 400px) {
+		position: absolute;
+		width: 0;
+		overflow: hidden;
 	}
 }

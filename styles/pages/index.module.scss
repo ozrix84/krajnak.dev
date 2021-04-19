@@ -1,11 +1,28 @@
 .Intro {
-	margin: 153px auto;
+	margin: 15.3rem auto;
 
 	font-family: "Kanit", Helvetica, sans-serif;
-	font-size: 25px;
+	font-size: 2.5rem;
 	font-weight: 200;
 
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 11px;
+
+	@media (max-width: 1000px) {
+		font-size: 2.3rem;
+		letter-spacing: 9px;
+	}
+
+	@media (max-width: 870px) {
+		width: 85%;
+		font-size: 2.5rem;
+		letter-spacing: 8px;
+		margin: 11rem auto;
+	}
+
+	@media (max-width: 320px) {
+		width: 90%;
+		margin: 9rem auto;
+	}
 }

@@ -29,3 +29,21 @@ a {
 	align-items: center;
 	min-height: 100%;
 }
+
+@media screen and (max-width: 825px) {
+	html {
+		font-size: 9px;
+	}
+}
+
+@media screen and (max-width: 745px) {
+	html {
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 675px) {
+	html {
+		font-size: 7px;
+	}
+}

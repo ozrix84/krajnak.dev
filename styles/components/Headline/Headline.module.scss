@@ -5,27 +5,10 @@
 	font-weight: bold;
 }
 
-.HeadlineTitle {
-	margin: 0 0 0 13%;
-	font-size: 13.6rem;
-	letter-spacing: -6.5px;
-	line-height: .75;
-}
-
-.HeadlineSubtitle {
-	position: relative;
-	display: inline-block;
-	padding: 8px 10px;
-	margin: 10px 0 0 28.8%;
-
-	letter-spacing: -1.5px;
-	border: vars.$dashed-border;
-	font-size: 4.6rem;
-	line-height: 1;
-
-	strong {
-		color: #ecdfce;
-	}
+.HeadlineSubtitleWrapper {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
 }
 
 .HeadlineLeftBorder,
@@ -103,5 +86,94 @@
 	.HeadlineRightBorder {
 		right: -35%;
 		width: 35%;
+	}
+}
+
+.HeadlineTitle {
+	margin: 0 0 0 13%;
+	font-size: 13.6rem;
+	letter-spacing: -6.5px;
+	line-height: .75;
+
+	@media (max-width: 365px) {
+		font-size: 10rem;
+	}
+
+	@media (max-width: 870px) {
+		margin-left: 4%;
+	}
+
+	@media (max-width: 600px) {
+		margin-left: 4%;
+	}
+
+	@media (max-width: 520px) {
+		margin-left: 0;
+	}
+
+	@media (max-width: 420px) {
+		font-size: 12rem;
+	}
+
+	@media (max-width: 365px) {
+		font-size: 11rem;
+	}
+
+	@media (max-width: 320px) {
+		font-size: 10rem;
+	}
+}
+
+.HeadlineSubtitle {
+	position: relative;
+	display: inline-block;
+	padding: 8px 10px;
+	margin: 10px 0 0 28.8%;
+
+	letter-spacing: -1.5px;
+	border: vars.$dashed-border;
+	font-size: 4.6rem;
+	line-height: 1;
+
+	strong {
+		color: #ecdfce;
+	}
+
+	@media (max-width: 1030px) {
+		margin-left: 21.8%;
+	}
+
+	@media (max-width: 940px) {
+		margin-left: 15%;
+	}
+
+	@media (max-width: 870px) {
+		margin-left: 10%;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 4.5rem;
+	}
+
+	@media (max-width: 580px) {
+		font-size: 4rem;
+	}
+
+	@media (max-width: 520px) {
+		font-size: 3.5rem;
+		margin-left: 7%;
+	}
+
+	@media (max-width: 420px) {
+		font-size: 3.3rem;
+	}
+
+	@media (max-width: 375px) {
+		font-size: 3rem;
+	}
+
+	@media (max-width: 320px) {
+		margin-left: 4%;
+		font-size: 2.7rem;
 	}
 }

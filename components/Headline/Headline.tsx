@@ -46,17 +46,19 @@ export default function Headline(props: HeadlineProps) {
 	return <div className={`${styles.Headline} ${props.className || ''}`} {...motionProps}>
 		{props.titleTag === 'h1' ? headline : paragraph}
 
-		<motion.p
-			className={`${styles.HeadlineSubtitle}`}
-			initial={'fromRight'}
-			animate={'animate'}
-			transition={{ delay: 0.2 }}
-			variants={variants}
-		>
-			{props.subtitle}
+		<div className={`${styles.HeadlineSubtitleWrapper}`}>
+			<motion.p
+				className={`${styles.HeadlineSubtitle}`}
+				initial={'fromRight'}
+				animate={'animate'}
+				transition={{ delay: 0.2 }}
+				variants={variants}
+			>
+				{props.subtitle}
 
-			<motion.span {...lineMotionProps} className={styles.HeadlineLeftBorder}/>
-			<motion.span {...lineMotionProps} className={styles.HeadlineRightBorder}/>
-		</motion.p>
+				<motion.span {...lineMotionProps} className={styles.HeadlineLeftBorder}/>
+				<motion.span {...lineMotionProps} className={styles.HeadlineRightBorder}/>
+			</motion.p>
+		</div>
 	</div>
 }
